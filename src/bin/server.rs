@@ -34,12 +34,10 @@ async fn handle_connection(
             match result {
                 Ok(msg) => {
                     if msg.is_text() {
-                        // Extract the message text
                         let text = msg.as_text().unwrap_or("").to_string();
+                        let formatted = format!("From {}: {}", addr, text);
                         println!("Received from {addr}: {text}");
-                        
-                        // Broadcast to all subscribers
-                        let _ = bcast_tx.send(text);
+                        let _ = bcast_tx.send(formatted);
                     } else if msg.is_close() {
                         break;
                     }

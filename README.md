@@ -10,3 +10,9 @@ In this experiment, we changed the WebSocket port from the default `2000` to `80
 
 ![with drop](asset/8000.png)
 
+## Experiment 1.3.
+
+For this experiment, we modified the server so that every message sent includes the sender's IP address and port. This change was made by appending the sender's `SocketAddr` to each message before it is broadcast to all clients. The purpose is to allow clients to identify where each message is coming from, even though we haven’t implemented a user naming system yet. As a result, every message received by a client will be displayed in a format like “From 127.0.0.1:49123: hello”, making it easier to recognize the sender. This modification helps us understand how additional information can be embedded in asynchronous communication using WebSocket.
+
+
+![with drop](asset/small_change.png)
