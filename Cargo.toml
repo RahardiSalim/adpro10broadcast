@@ -4,7 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-futures-util = { version = "0.3.31", features = ["sink"] }
-http = "1.3.1"
-tokio = { version = "1.44.2", features = ["full"] }
-tokio-websockets = { version = "0.11.4", features = ["client", "fastrand", "server", "sha1_smol"] }
+tokio = { version = "1", features = ["full"] }
+tokio-websockets = { version = "0.5", features = ["client", "server", "ring", "rand"] }
+futures-util = { version = "0.3", features = ["sink"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rand = "0.8"
+http = "1"
